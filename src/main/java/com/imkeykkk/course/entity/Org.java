@@ -1,4 +1,4 @@
-package com.imkeykkk.course;
+package com.imkeykkk.course.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

@@ -1,6 +1,7 @@
-package com.imkeykkk.course;
+package com.imkeykkk.course.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.imkeykkk.course.entity.Org;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
