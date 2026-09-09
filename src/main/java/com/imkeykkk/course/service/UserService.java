@@ -10,4 +10,6 @@ public interface UserService {
     List<User> list();
 
     boolean login(String username, String rawPassword);
+
+    User getById(Long id);
 }

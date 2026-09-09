@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
+    @Autowired//Autowired会通过类型PasswordEncoder匹配Bean，但是如果有多个同类型的Bean，会通过变量名passwordEncoder匹配，或者可以通过@Qualifier显示指定
     private PasswordEncoder passwordEncoder;
 
     @Override
@@ -25,6 +25,17 @@ public class UserServiceImpl implements UserService {
         wrapper.eq("username",username);//eq("字段", 值)：等于，如.eq("age", 18) 生成 age = 18。
         return userMapper.selectOne(wrapper);//selectOne 方法有一个致命陷阱：‌如果数据库中有两条及以上用户的 username 相同，它会抛出 TooManyResultsException 异常‌。
         //所以后面应该要对这条语句做处理，
+        //为什么不直接用mapper中的方法呢，因为没有通过字符串查找的，倒是有通过id查找的，例如下面的getById方法
+    }
+
+    @Override
+    public User getById(Long id) {
+
+        return userMapper.selectById(id);
+
+        /*QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("id",id);
+        return userMapper.selectOne(wrapper);也可以这么用*/
     }
 
     @Override
@@ -40,4 +51,6 @@ public class UserServiceImpl implements UserService {
         }
         return  passwordEncoder.matches(rawPassword,user.getPassword());
     }
+
+
 }
