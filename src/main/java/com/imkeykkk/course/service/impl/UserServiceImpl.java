@@ -5,6 +5,7 @@ import com.imkeykkk.course.entity.User;
 import com.imkeykkk.course.mapper.UserMapper;
 import com.imkeykkk.course.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User findByUsername(String username) {
@@ -28,6 +32,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectList(null);
     }
 
-
-
+    @Override
+    public boolean login(String username, String rawPassword) {
+        User user = findByUsername(username);
+        if(user==null){
+            return false;
+        }
+        return  passwordEncoder.matches(rawPassword,user.getPassword());
+    }
 }

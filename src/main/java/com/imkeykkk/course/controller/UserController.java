@@ -28,7 +28,8 @@ public class UserController {
         if(user == null){
             return "用户不存在";
         }
-        if(user.getPassword().equals(password)){
+        boolean success = userService.login(username,password);
+        if(success){
             return "登录成功，欢迎"+user.getRealName();
         }
         else{

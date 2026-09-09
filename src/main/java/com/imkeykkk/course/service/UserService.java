@@ -8,4 +8,6 @@ public interface UserService {
     User findByUsername(String username);
 
     List<User> list();
+
+    boolean login(String username, String rawPassword);
 }
