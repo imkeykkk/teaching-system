@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         wrapper.eq("username",username);//eq("字段", 值)：等于，如.eq("age", 18) 生成 age = 18。
         return userMapper.selectOne(wrapper);//selectOne 方法有一个致命陷阱：‌如果数据库中有两条及以上用户的 username 相同，它会抛出 TooManyResultsException 异常‌。
         //所以后面应该要对这条语句做处理，
-        //为什么不直接用mapper中的方法呢，因为没有通过字符串查找的，倒是有通过id查找的，例如下面的getById方法
+        //为什么不直接用mapper中的方法呢，因为没有，内置的单表快捷方法主要根据主键id来查询，否则就是传入wrapper查询，例如下面这个getById方法
     }
 
     @Override
