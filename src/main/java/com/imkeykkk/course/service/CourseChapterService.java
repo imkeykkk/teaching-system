@@ -1,6 +1,7 @@
 package com.imkeykkk.course.service;
 
 import com.imkeykkk.course.entity.CourseChapter;
+import com.imkeykkk.course.entity.Question;
 
 import java.util.List;
 
@@ -15,4 +16,8 @@ public interface CourseChapterService {
     void updateChapter(CourseChapter chapter);
 
     void deleteChapter(Long id);
+
+    void addQuestionToChapter(Long chapterId, Long questionId);
+
+    List<Question> getQuestionsByChapterId(Long chapterId);
 }

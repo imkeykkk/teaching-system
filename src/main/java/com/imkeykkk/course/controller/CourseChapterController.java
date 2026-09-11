@@ -1,6 +1,7 @@
 package com.imkeykkk.course.controller;
 
 import com.imkeykkk.course.entity.CourseChapter;
+import com.imkeykkk.course.entity.Question;
 import com.imkeykkk.course.service.CourseChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,5 +44,16 @@ public class CourseChapterController {
     public String deleteChapter(@PathVariable Long courseId, @PathVariable Long id) {
         courseChapterService.deleteChapter(id);
         return "删除成功";
+    }
+
+    @PostMapping("/{chapterId}/questions/{questionId}")
+    public String addQuestion(@PathVariable Long courseId, @PathVariable Long chapterId, @PathVariable Long questionId) {
+        courseChapterService.addQuestionToChapter(chapterId, questionId);
+        return "添加题目成功";
+    }
+
+    @GetMapping("/{chapterId}/questions")
+    public List<Question> getQuestions(@PathVariable Long courseId, @PathVariable Long chapterId) {
+        return courseChapterService.getQuestionsByChapterId(chapterId);
     }
 }
