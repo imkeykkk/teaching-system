@@ -28,7 +28,7 @@ public class ClassServiceImpl implements ClassService {
     private StudentMapper studentMapper;
 
     @Override
-    public List<Clazz> list() {
+    public List<Clazz> getClassList() {
         return classMapper.selectList(null);
     }
 

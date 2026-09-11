@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
     User findByUsername(String username);
 
-    List<User> list();
+    List<User> getUserList();
 
     boolean login(String username, String rawPassword);
 

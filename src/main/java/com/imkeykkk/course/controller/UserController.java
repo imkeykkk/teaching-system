@@ -21,8 +21,8 @@ public class UserController {
     private JwtUtil jwtUtil;
 
     @GetMapping("/users")
-    public List<User> list() {
-        return userService.list();
+    public List<User> getUserList() {
+        return userService.getUserList();
     }
 
 

@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> list() {
+    public List<User> getUserList() {
         return userMapper.selectList(null);
     }
 

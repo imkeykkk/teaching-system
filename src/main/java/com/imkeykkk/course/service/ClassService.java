@@ -6,7 +6,7 @@ import com.imkeykkk.course.entity.Student;
 import java.util.List;
 
 public interface ClassService {
-    List<Clazz> list();
+    List<Clazz> getClassList();
 
     Clazz getById(Long id);
 

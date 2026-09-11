@@ -18,8 +18,8 @@ public class StudentController {
     //在 RESTful 风格开发中，‌同一个 URL（资源路径）可以通过不同的 HTTP 请求方法（GET, POST, PUT, DELETE 等）映射到后端不同的处理函数‌，从而执行完全不同的业务逻辑
 
     @GetMapping//方法上没有指定子路径时，直接响应类路径
-    public List<Student> list() {
-        return studentService.list();
+    public List<Student> getStudentList() {
+        return studentService.getStudentList();
     }
 
     @GetMapping("/{id}")

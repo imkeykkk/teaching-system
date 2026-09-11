@@ -15,8 +15,8 @@ public class ClassController {
     private ClassService classService;
 
     @GetMapping
-    public List<Clazz> list() {
-        return classService.list();
+    public List<Clazz> getClassList() {
+        return classService.getClassList();
     }
 
     @GetMapping("/{id}")

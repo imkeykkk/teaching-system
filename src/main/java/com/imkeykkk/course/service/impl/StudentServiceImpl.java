@@ -29,7 +29,7 @@ public class StudentServiceImpl implements StudentService {
 
 
     @Override
-    public List<Student> list() {
+    public List<Student> getStudentList() {
         return studentMapper.selectList(null);
     }
 
