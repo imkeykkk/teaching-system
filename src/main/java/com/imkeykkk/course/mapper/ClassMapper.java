@@ -5,5 +5,5 @@ import com.imkeykkk.course.entity.Clazz;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface ClazzMapper extends BaseMapper<Clazz> {
+public interface ClassMapper extends BaseMapper<Clazz> {
 }
