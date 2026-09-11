@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         if(user==null){
             return false;
         }
-        return  passwordEncoder.matches(rawPassword,user.getPassword());
+        return  passwordEncoder.matches(rawPassword,user.getPassword());//第一个参数是明文，第二个参数是加密后的密码（从数据库取）
     }
 
 

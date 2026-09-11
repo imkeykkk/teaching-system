@@ -75,7 +75,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void update(Student student) {
-        studentMapper.updateById(student);
+        studentMapper.updateById(student);//updateById 的核心逻辑是‌依赖主键 ID 作为 WHERE 条件来定位唯一记录
     }
 
     @Override
