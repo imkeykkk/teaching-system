@@ -33,22 +33,22 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public Clazz getById(Long id) {
+    public Clazz getClassById(Long id) {
         return classMapper.selectById(id);
     }
 
     @Override
-    public void add(Clazz clazz) {
+    public void addClass(Clazz clazz) {
         classMapper.insert(clazz);
     }
 
     @Override
-    public void update(Clazz clazz) {
+    public void updateClass(Clazz clazz) {
         classMapper.updateById(clazz);
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteClass(Long id) {
         classMapper.deleteById(id);
     }
 

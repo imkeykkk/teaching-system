@@ -34,13 +34,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getById(Long id) {
+    public Student getStudentById(Long id) {
         return studentMapper.selectById(id);
     }
 
     @Override
     @Transactional//事务注解，保证全部成功或全部回滚，避免在多个操作中部分操作成功部分失败导致数据不一致
-    public void add(Student student) {
+    public void addStudent(Student student) {
 
         // 1. 生成用户名和密码
         String pinyin = PinyinUtil.toPinyin(student.getName());
@@ -74,12 +74,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void update(Student student) {
+    public void updateStudent(Student student) {
         studentMapper.updateById(student);//updateById 的核心逻辑是‌依赖主键 ID 作为 WHERE 条件来定位唯一记录
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteStudent(Long id) {
         studentMapper.deleteById(id);
     }
 }

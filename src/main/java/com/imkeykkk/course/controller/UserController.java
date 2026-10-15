@@ -1,7 +1,6 @@
 package com.imkeykkk.course.controller;
 
 import com.imkeykkk.course.entity.User;
-import com.imkeykkk.course.mapper.UserMapper;
 import com.imkeykkk.course.service.UserService;
 import com.imkeykkk.course.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +71,7 @@ public class UserController {
         }
 
         Long userId = jwtUtil.getUserIdFromToken(token);//从Token中获得id，这是在@PostMapping("/login")中传入Token中的
-        User user = userService.getById(userId);
+        User user = userService.getUserById(userId);
 
         result.put("success",true);
         result.put("id",user.getId());

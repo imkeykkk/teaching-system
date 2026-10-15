@@ -47,13 +47,13 @@ public class CourseChapterController {
     }
 
     @PostMapping("/{chapterId}/questions/{questionId}")
-    public String addQuestion(@PathVariable Long courseId, @PathVariable Long chapterId, @PathVariable Long questionId) {
+    public String addQuestionToChapter(@PathVariable Long courseId, @PathVariable Long chapterId, @PathVariable Long questionId) {
         courseChapterService.addQuestionToChapter(chapterId, questionId);
         return "添加题目成功";
     }
 
     @GetMapping("/{chapterId}/questions")
-    public List<Question> getQuestions(@PathVariable Long courseId, @PathVariable Long chapterId) {
+    public List<Question> getQuestionsByChapterId(@PathVariable Long courseId, @PathVariable Long chapterId) {
         return courseChapterService.getQuestionsByChapterId(chapterId);
     }
 }

@@ -11,5 +11,5 @@ public interface UserService {
 
     boolean login(String username, String rawPassword);
 
-    User getById(Long id);
+    User getUserById(Long id);
 }

@@ -15,7 +15,7 @@ public class OrgController {
     private OrgMapper orgMapper;
 
     @GetMapping("/orgs")
-    public List<Org> list() {
+    public List<Org> getOrgList() {
         return orgMapper.selectList(null);
     }
 }

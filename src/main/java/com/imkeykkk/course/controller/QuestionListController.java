@@ -2,8 +2,6 @@ package com.imkeykkk.course.controller;
 
 import com.imkeykkk.course.entity.Question;
 import com.imkeykkk.course.entity.QuestionList;
-import com.imkeykkk.course.entity.QuestionListItem;
-import com.imkeykkk.course.mapper.QuestionListItemMapper;
 import com.imkeykkk.course.service.QuestionListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +52,7 @@ public class QuestionListController {
     }
 
     @GetMapping("/{questionListId}/questions")
-    public List<Question> getQuestions(@PathVariable Long questionListId){
-        return questionListService.getQuestionByQuestionListId(questionListId);
+    public List<Question> getQuestionsByQuestionListId(@PathVariable Long questionListId){
+        return questionListService.getQuestionsByQuestionListId(questionListId);
     }
 }

@@ -8,11 +8,11 @@ public interface StudentService {
 
     List<Student> getStudentList();
 
-    Student getById(Long id);
+    Student getStudentById(Long id);
 
-    void add(Student student);
+    void addStudent(Student student);
 
-    void update(Student student);
+    void updateStudent(Student student);
 
-    void delete(Long id);
+    void deleteStudent(Long id);
 }

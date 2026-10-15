@@ -8,13 +8,13 @@ import java.util.List;
 public interface ClassService {
     List<Clazz> getClassList();
 
-    Clazz getById(Long id);
+    Clazz getClassById(Long id);
 
-    void add(Clazz clazz);
+    void addClass(Clazz clazz);
 
-    void update(Clazz clazz);
+    void updateClass(Clazz clazz);
 
-    void delete(Long id);
+    void deleteClass(Long id);
 
     void addStudentToClass(Long classId,Long studentId);
 

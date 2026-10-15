@@ -20,37 +20,38 @@ public class ClassController {
     }
 
     @GetMapping("/{id}")
-    public Clazz getById(@PathVariable Long id) {
-        return classService.getById(id);
+    public Clazz getClassById(@PathVariable Long id) {
+        return classService.getClassById(id);
     }
 
     @PostMapping
-    public String add(@RequestBody Clazz clazz) {
-        classService.add(clazz);
+    public String addClass(@RequestBody Clazz clazz) {
+        classService.addClass(clazz);
         return "新增成功";
     }
 
     @PutMapping("/{id}")
-    public String update(@PathVariable Long id, @RequestBody Clazz clazz) {
+    public String updateClass(@PathVariable Long id, @RequestBody Clazz clazz) {
         clazz.setId(id);
-        classService.update(clazz);
+        classService.updateClass(clazz);
         return "修改成功";
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
-        classService.delete(id);
+    public String deleteClass(@PathVariable Long id) {
+        classService.deleteClass(id);
         return "删除成功";
     }
 
     @PostMapping("/{classId}/students/{studentId}")
-    public String addStudent(@PathVariable Long classId, @PathVariable Long studentId) {
+    public String addStudentToClass(@PathVariable Long classId, @PathVariable Long studentId) {
         classService.addStudentToClass(classId, studentId);
         return "加入班级成功";
     }
 
     @GetMapping("/{classId}/students")
-    public List<Student> getStudents(@PathVariable Long classId) {
+    public List<Student> getStudentsByClassId(@PathVariable Long classId) {
+
         return classService.getStudentsByClassId(classId);
     }
     

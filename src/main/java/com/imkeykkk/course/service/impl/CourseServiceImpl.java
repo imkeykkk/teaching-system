@@ -19,22 +19,22 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course getById(Long id) {
+    public Course getCourseById(Long id) {
         return courseMapper.selectById(id);
     }
 
     @Override
-    public void add(Course course) {
+    public void addCourse(Course course) {
         courseMapper.insert(course);
     }
 
     @Override
-    public void update(Course course) {
+    public void updateCourse(Course course) {
         courseMapper.updateById(course);
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteCourse(Long id) {
         courseMapper.deleteById(id);
     }
 }

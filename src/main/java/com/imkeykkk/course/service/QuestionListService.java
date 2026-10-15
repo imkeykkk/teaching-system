@@ -19,5 +19,5 @@ public interface QuestionListService {
 
     void addQuestionToQuestionList(Long questionListId, Long questionId);
 
-    List<Question> getQuestionByQuestionListId(Long id);
+    List<Question> getQuestionsByQuestionListId(Long id);
 }

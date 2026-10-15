@@ -62,7 +62,7 @@ public class QuestionListServiceImpl implements QuestionListService {
     }
 
     @Override
-    public List<Question> getQuestionByQuestionListId(Long questionListId) {
+    public List<Question> getQuestionsByQuestionListId(Long questionListId) {
         QueryWrapper<QuestionListItem> wrapper = new QueryWrapper<>();
         wrapper.eq("question_list_id", questionListId);
 

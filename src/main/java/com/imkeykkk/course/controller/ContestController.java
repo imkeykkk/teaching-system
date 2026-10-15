@@ -45,13 +45,13 @@ public class ContestController {
     }
 
     @PostMapping("/{contestId}/questions/{questionId}")
-    public String addQuestion(@PathVariable Long contestId, @PathVariable Long questionId){
+    public String addQuestionToContest(@PathVariable Long contestId, @PathVariable Long questionId){
         contestService.addQuestionToContest(contestId, questionId);
         return "添加题目成功";
     }
 
     @GetMapping("/{contestId}/questions")
-    public List<Question> getQuestionList(@PathVariable Long contestId){
+    public List<Question> getQuestionListByContestId(@PathVariable Long contestId){
         return contestService.getQuestionsByContestId(contestId);
     }
 

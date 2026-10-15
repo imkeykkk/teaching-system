@@ -20,25 +20,25 @@ public class CourseController {
 
     @GetMapping("/{id}")
     public Course getCourseById(@PathVariable Long id){
-        return courseService.getById(id);
+        return courseService.getCourseById(id);
     }
 
     @PostMapping
     public String addCourse(@RequestBody Course course){
-        courseService.add(course);
+        courseService.addCourse(course);
         return "新增成功";
     }
 
     @PutMapping("/{id}")
-    public String update(@PathVariable Long id, @RequestBody Course course) {
+    public String updateCourse(@PathVariable Long id, @RequestBody Course course) {
         course.setId(id);
-        courseService.update(course);
+        courseService.updateCourse(course);
         return "修改成功";
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
-        courseService.delete(id);
+    public String deleteCourse(@PathVariable Long id) {
+        courseService.deleteCourse(id);
         return "删除成功";
     }
 }

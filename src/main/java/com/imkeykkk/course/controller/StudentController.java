@@ -1,7 +1,6 @@
 package com.imkeykkk.course.controller;
 
 import com.imkeykkk.course.entity.Student;
-import com.imkeykkk.course.mapper.StudentMapper;
 import com.imkeykkk.course.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,26 +23,26 @@ public class StudentController {
 
     @GetMapping("/{id}")
     public Student getById(@PathVariable Long id) {
-        return studentService.getById(id);
+        return studentService.getStudentById(id);
     }
 
     @PostMapping//Post请求通常用于创建‌新资源，方法上没有指定子路径时，直接响应类路径
-    public String add(@RequestBody Student student) {
-        studentService.add(student);
+    public String addStudent(@RequestBody Student student) {
+        studentService.addStudent(student);
         return "新增成功";
     }
 
     @PutMapping("/{id}")//PUT 请求通常用于‌更新现有的资源，并且是全量更新，部分更新时用@PatchMapping
     //且PUT 是‌幂等‌的（Idempotent），即多次执行相同的 PUT 请求，服务器的状态应该是一致的（资源被更新为相同的状态）
-    public String update(@PathVariable Long id, @RequestBody Student student) {
+    public String updateStudent(@PathVariable Long id, @RequestBody Student student) {
         student.setId(id);
-        studentService.update(student);
+        studentService.updateStudent(student);
         return "修改成功";
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Long id) {
-        studentService.delete(id);
+    public String deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
         return "删除成功";
     }
 
