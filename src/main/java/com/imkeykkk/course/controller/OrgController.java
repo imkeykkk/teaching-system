@@ -1,5 +1,6 @@
 package com.imkeykkk.course.controller;
 
+import com.imkeykkk.course.common.Result;
 import com.imkeykkk.course.mapper.OrgMapper;
 import com.imkeykkk.course.entity.Org;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class OrgController {
     private OrgMapper orgMapper;
 
     @GetMapping("/orgs")
-    public List<Org> getOrgList() {
-        return orgMapper.selectList(null);
+    public Result<List<Org>> getOrgList() {
+        return Result.success(orgMapper.selectList(null));
     }
 }

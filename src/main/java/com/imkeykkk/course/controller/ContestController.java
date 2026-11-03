@@ -1,5 +1,6 @@
 package com.imkeykkk.course.controller;
 
+import com.imkeykkk.course.common.Result;
 import com.imkeykkk.course.entity.Contest;
 import com.imkeykkk.course.entity.Question;
 import com.imkeykkk.course.service.ContestService;
@@ -16,43 +17,43 @@ public class ContestController {
     private ContestService contestService;
 
     @GetMapping
-    public List<Contest> getContestList(){
-        return contestService.getContestsList();
+    public Result<List<Contest>> getContestList(){
+        return Result.success(contestService.getContestsList());
     }
 
     @GetMapping("/{id}")
-    public Contest getContest(@PathVariable Long id){
-        return contestService.getContestById(id);
+    public Result<Contest> getContest(@PathVariable Long id){
+        return Result.success(contestService.getContestById(id));
     }
 
     @PostMapping
-    public String addContest(@RequestBody Contest contest){
+    public Result<String> addContest(@RequestBody Contest contest){
         contestService.addContest(contest);
-        return "新增成功";
+        return Result.success("新增成功");
     }
 
     @PutMapping("/{id}")
-    public String updateContest(@PathVariable Long id, @RequestBody Contest contest){
+    public Result<String> updateContest(@PathVariable Long id, @RequestBody Contest contest){
         contest.setId(id);
         contestService.updateContest(contest);
-        return "更新成功";
+        return Result.success("更新成功");
     }
 
     @DeleteMapping("/{id}")
-    public String deleteContest(@PathVariable Long id){
+    public Result<String> deleteContest(@PathVariable Long id){
         contestService.deleteContest(id);
-        return "删除成功";
+        return Result.success("删除成功");
     }
 
     @PostMapping("/{contestId}/questions/{questionId}")
-    public String addQuestionToContest(@PathVariable Long contestId, @PathVariable Long questionId){
+    public Result<String> addQuestionToContest(@PathVariable Long contestId, @PathVariable Long questionId){
         contestService.addQuestionToContest(contestId, questionId);
-        return "添加题目成功";
+        return Result.success("添加题目成功");
     }
 
     @GetMapping("/{contestId}/questions")
-    public List<Question> getQuestionListByContestId(@PathVariable Long contestId){
-        return contestService.getQuestionsByContestId(contestId);
+    public Result<List<Question>> getQuestionListByContestId(@PathVariable Long contestId){
+        return Result.success(contestService.getQuestionsByContestId(contestId));
     }
 
 }

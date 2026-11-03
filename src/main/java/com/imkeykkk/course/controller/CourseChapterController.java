@@ -1,5 +1,6 @@
 package com.imkeykkk.course.controller;
 
+import com.imkeykkk.course.common.Result;
 import com.imkeykkk.course.entity.CourseChapter;
 import com.imkeykkk.course.entity.Question;
 import com.imkeykkk.course.service.CourseChapterService;
@@ -16,44 +17,44 @@ public class CourseChapterController {
     private CourseChapterService courseChapterService;
 
     @GetMapping
-    public List<CourseChapter> getChapterList(@PathVariable Long courseId) {
-        return courseChapterService.getChaptersByCourseId(courseId);
+    public Result<List<CourseChapter>> getChapterList(@PathVariable Long courseId) {
+        return Result.success(courseChapterService.getChaptersByCourseId(courseId));
     }
 
     @GetMapping("/{id}")
-    public CourseChapter getChapter(@PathVariable Long courseId, @PathVariable Long id) {
-        return courseChapterService.getChapterById(id);
+    public Result<CourseChapter> getChapter(@PathVariable Long courseId, @PathVariable Long id) {
+        return Result.success(courseChapterService.getChapterById(id));
     }
 
     @PostMapping
-    public String addChapter(@PathVariable Long courseId, @RequestBody CourseChapter chapter) {
+    public Result<String> addChapter(@PathVariable Long courseId, @RequestBody CourseChapter chapter) {
         chapter.setCourseId(courseId);
         courseChapterService.addChapter(chapter);
-        return "新增成功";
+        return Result.success("新增成功");
     }
 
     @PutMapping("/{id}")
-    public String updateChapter(@PathVariable Long courseId, @PathVariable Long id, @RequestBody CourseChapter chapter) {
+    public Result<String> updateChapter(@PathVariable Long courseId, @PathVariable Long id, @RequestBody CourseChapter chapter) {
         chapter.setId(id);
         chapter.setCourseId(courseId);
         courseChapterService.updateChapter(chapter);
-        return "修改成功";
+        return Result.success("修改成功");
     }
 
     @DeleteMapping("/{id}")
-    public String deleteChapter(@PathVariable Long courseId, @PathVariable Long id) {
+    public Result<String> deleteChapter(@PathVariable Long courseId, @PathVariable Long id) {
         courseChapterService.deleteChapter(id);
-        return "删除成功";
+        return Result.success("删除成功");
     }
 
     @PostMapping("/{chapterId}/questions/{questionId}")
-    public String addQuestionToChapter(@PathVariable Long courseId, @PathVariable Long chapterId, @PathVariable Long questionId) {
+    public Result<String> addQuestionToChapter(@PathVariable Long courseId, @PathVariable Long chapterId, @PathVariable Long questionId) {
         courseChapterService.addQuestionToChapter(chapterId, questionId);
-        return "添加题目成功";
+        return Result.success("添加题目成功");
     }
 
     @GetMapping("/{chapterId}/questions")
-    public List<Question> getQuestionsByChapterId(@PathVariable Long courseId, @PathVariable Long chapterId) {
-        return courseChapterService.getQuestionsByChapterId(chapterId);
+    public Result<List<Question>> getQuestionsByChapterId(@PathVariable Long courseId, @PathVariable Long chapterId) {
+        return Result.success(courseChapterService.getQuestionsByChapterId(chapterId));
     }
 }

@@ -1,5 +1,6 @@
 package com.imkeykkk.course.controller;
 
+import com.imkeykkk.course.common.Result;
 import com.imkeykkk.course.entity.Course;
 import com.imkeykkk.course.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +15,31 @@ public class CourseController {
     CourseService courseService;
 
     @GetMapping
-    public List<Course> getCourseList(){
-        return courseService.getCourseList();
+    public Result<List<Course>> getCourseList(){
+        return Result.success(courseService.getCourseList());
     }
 
     @GetMapping("/{id}")
-    public Course getCourseById(@PathVariable Long id){
-        return courseService.getCourseById(id);
+    public Result<Course> getCourseById(@PathVariable Long id){
+        return Result.success(courseService.getCourseById(id));
     }
 
     @PostMapping
-    public String addCourse(@RequestBody Course course){
+    public Result<String> addCourse(@RequestBody Course course){
         courseService.addCourse(course);
-        return "新增成功";
+        return Result.success("新增成功");
     }
 
     @PutMapping("/{id}")
-    public String updateCourse(@PathVariable Long id, @RequestBody Course course) {
+    public Result<String> updateCourse(@PathVariable Long id, @RequestBody Course course) {
         course.setId(id);
         courseService.updateCourse(course);
-        return "修改成功";
+        return Result.success("修改成功");
     }
 
     @DeleteMapping("/{id}")
-    public String deleteCourse(@PathVariable Long id) {
+    public Result<String> deleteCourse(@PathVariable Long id) {
         courseService.deleteCourse(id);
-        return "删除成功";
+        return Result.success("删除成功");
     }
 }
